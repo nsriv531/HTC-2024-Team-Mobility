@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import supabase from './supaBase';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
@@ -19,7 +19,6 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Here you can perform your login logic
     console.log('Username:', username);
     console.log('Password:', password);
   };
@@ -77,22 +76,6 @@ function App() {
           <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Login</button>
         </form>
       </div>
-      {/* <div className="mt-8">
-        <h2 className="text-center text-xl font-bold mb-4">User Data</h2>
-        <div className="flex justify-center">
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-            <ul>
-              {userData.map(user => (
-                <li key={user.user_id}>
-                  <div>UserID: {user.user_id}</div>
-                  <div>Username: {user.username}</div>
-                  <div>Password: {user.password}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react';
-import supabase from './supaBase';
+import { useState } from 'react';
 import reactLogo from './assets/react.svg';
 import viteLogo from '/vite.svg';
 import './App.css'; // Import your CSS file
@@ -7,8 +6,8 @@ import './App.css'; // Import your CSS file
 function App() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
-  const [userData, setUserData] = useState([]);
-
+  const [users, setUsers] = useState([]);
+  
   const handleUsernameChange = (e) => {
     setUsername(e.target.value);
   };
@@ -27,6 +26,7 @@ function App() {
   useEffect(() => {
     async function fetchData() {
       try {
+        // Fetch data from 'userbase' table
         const { data, error } = await supabase.from('userbase').select('*');
         
         if (error) {
@@ -34,13 +34,14 @@ function App() {
           return;
         }
 
-        setUserData(data);
+        // Set the fetched users data in state
+        setUsers(data);
       } catch (error) {
         console.error('Error fetching data:', error.message);
       }
     }
 
-    fetchData();
+    fetchData(); // Call the fetchData function when component mounts
   }, []);
 
   return (
@@ -77,22 +78,6 @@ function App() {
           <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Login</button>
         </form>
       </div>
-      {/* <div className="mt-8">
-        <h2 className="text-center text-xl font-bold mb-4">User Data</h2>
-        <div className="flex justify-center">
-          <div className="bg-gray-100 p-4 rounded-lg shadow-md">
-            <ul>
-              {userData.map(user => (
-                <li key={user.user_id}>
-                  <div>UserID: {user.user_id}</div>
-                  <div>Username: {user.username}</div>
-                  <div>Password: {user.password}</div>
-                </li>
-              ))}
-            </ul>
-          </div>
-        </div>
-      </div> */}
     </>
   );
 }

@@ -77,7 +77,7 @@ function App() {
           <button type="submit" className="w-full bg-blue-500 text-white py-2 px-4 rounded-md hover:bg-blue-600">Login</button>
         </form>
       </div>
-      {/* <div className="mt-8">
+      <div className="mt-8">
         <h2 className="text-center text-xl font-bold mb-4">User Data</h2>
         <div className="flex justify-center">
           <div className="bg-gray-100 p-4 rounded-lg shadow-md">
@@ -92,7 +92,7 @@ function App() {
             </ul>
           </div>
         </div>
-      </div> */}
+      </div>
     </>
   );
 }
