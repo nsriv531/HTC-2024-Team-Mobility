@@ -7,7 +7,7 @@ function CreateAccount() {
   return (
       <div className="flex justify-center mt-8">
         {/* Your Create Account form JSX goes here */}
-        <p>test!</p>
+        <p>i fucking hate react</p>
       </div>
   );
 }
